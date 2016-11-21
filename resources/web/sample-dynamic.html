@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Starter Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- bootstrap-datepicker css -->
+<link href="assets/css/bootstrap-datepicker.css" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="assets/css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="assets/css/starter-template.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!--
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+	<!--   </div>
+    </nav>
+-->
+	<div class="container">
+
+		<div class="row">
+			<ul class="nav nav-tabs">
+				<li role="presentation" class="active"><a href="#annotate-tab"
+					data-toggle="tab">Annotate</a></li>
+			<!-- 	<li role="presentation"><a href="#link-tab" data-toggle="tab"
+					onclick="displayGraph()">Link</a></li> -->
+			</ul>
+
+			<div class="tab-content">
+				<div id="annotate-tab" class="tab-pane fade in active">
+					<div class="row">
+						<div id="annotate" class="col-sm-12">
+							<h2>Your Text</h2>
+							<div id="textArea" contenteditable="true" style="">
+								<p>Over the course of the Games, from 23rd June 2014 to 3rd
+									August 2014, roughly 9 million Tweets were collected from
+									Twitter using a combination of transport-related keywords
+									(61%), hashtags (29%), and usernames (10%) or account holders
+									(for example, @GamesTravel2014). These keywords, hashtags and
+									usernames (a total of 339 items) were drawn from the Glasgow
+									2014 website and available relevant documents as well as
+									potential transport disruption keywords from literature
+									(Dehkharghani et al., 2014; Gal-Tzur et al., 2014;
+									GetReadyGlasgow, 2014; Khan et al., 2014; Mai and Hranac, 2013;
+									Rudat et al., 2014; Shires and Barber, 2014; Ukkusuri et al.,
+									2014). The defined keywords, hashtags, and usernames were input
+									into a Twitter Monitoring Infrastructure (TMI) platform
+									purposely developed for the research by a team of computer
+									scientists from the dot.rural Digital Economy Research Hub at
+									the University of Aberdeen. In this paper, we provide
+									descriptive statistics using the @GamesTravel2014 account as a
+									sample case. The @GamesTravel20142 Twitter account served as
+									the official Twitter travel feed during the Games, providing
+									travel information and advice to help attendees plan travel in
+									advance and alert followers to transport changes or
+									disruptions.</p>
+
+								<p>The total number of Tweets captured during the event for
+									the @gamestravel2014 account was 1067, with 865 as retweets and
+									96 “reply to @gamestravel2014” Tweets. The 865 retweets
+									included 446 individual Tweets, which were retweeted between 1
+									and 9 times each. For information content coding purposes, only
+									the original Tweet was considered, though all retweets were
+									used when evaluating type of user retweeting. Each unique Tweet
+									was coded by one researcher in the first instance using
+									thematic analysis, allocating a primary and up to two secondary
+									codes to each. This involved ascribing a category description
+									to the issue(s) or topic(s) contained in the message, and at
+									times noting the timeline being referred to (see Table 1). Our
+									initial content analysis of the retweets looks at the primary
+									category of Tweet as shown in Table 1. Categories were
+									determined using a modified version of the approach described
+									in (Naaman et al., 2010), with one member of the team assigning
+									initial codes to a subset of Tweets. Two additional members of
+									the project team then coded the Tweets based on this
+									categorization, which resulted in overall moderate agreement.
+									Following discussion and evaluation, categories were re-defined
+									and reduced and participants took part in a second round of
+									coding. In the recoding exercise, the level of agreement
+									reached, as computed using Fleiss Kappa implementation in the R
+									software package (Gamer et al., 2012), was substantial
+									agreement (i.e. 0.61 – 0.80) with z-value of 39.4, p-value of 0
+									and a kappa value of 0.65.</p>
+							</div>
+							<!--<textarea id="method-textarea" style="width:90%; height:15em;"></textarea>-->
+						</div>
+					</div>
+
+					<div class="row" style="margin-top: 1em;">
+						<div class="col-sm-6">
+							<div class="panel-group" id="accordion" role="tablist"
+								aria-multiselectable="true">
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab"
+										id="prompts-datasets-heading">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#prompts-datasets"
+												aria-expanded="true" aria-controls="prompts-datasets">
+												Datasets <span id="prompts-dataset-heading-summary"></span></a>
+										</h4>
+									</div>
+									<div id="prompts-datasets" class="panel-collapse collapse in"
+										role="tabpanel" aria-labelledby="prompts-dataset-heading" data-variable="vargen:rawDatasetId">
+										<div class="panel-body">
+											<div class="" id="prompts-datasets">
+												<button class="btn btn-default" id="btn-add-dataset">Add
+													Dataset</button>
+												<div id="prompts-datasets-content"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="prompts-prep-heading">
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#prompts-prep"
+												aria-expanded="false" aria-controls="prompts-prep"> Data
+												Preparation <span id="prompts-prep-heading-summary"></span></a>
+										</h4>
+									</div>
+									<div id="prompts-prep" class="panel-collapse collapse"
+										role="tabpanel" aria-labelledby="prompts-prep-heading" data-variable="vargen:dataprepActivityId">
+										<div class="panel-body">
+											<button class="btn btn-default" id="btn-add-prep">Add
+											Preparation Activity</button>
+											<div id="prompts-dataprep-content"></div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab"
+										id="prompts-analysis-heading">
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#prompts-analysis"
+												aria-expanded="false" aria-controls="prompts-analysis">
+												Data Analysis <span id="prompts-analysis-heading-summary"></span></a>
+										</h4>
+									</div>
+									<div id="prompts-analysis" class="panel-collapse collapse"
+										role="tabpanel" aria-labelledby="prompts-analysis-heading" data-variable="vargen:dataAnalysisActivityId">
+										<div class="panel-body">
+											<button class="btn btn-default" id="btn-add-analysis">Add
+											Analysis Activity</button>
+											<div id="prompts-dataanalysis-content"></div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="panel panel-default">
+									<div class="panel-heading" role="tab"
+										id="prompts-others-heading">
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#prompts-others"
+												aria-expanded="false" aria-controls="prompts-others">
+												Others </a>
+										</h4>
+									</div>
+									<div id="prompts-others" class="panel-collapse collapse"
+										role="tabpanel" aria-labelledby="prompts-others-heading">
+										<div class="panel-body"></div>
+									</div>
+								</div> -->
+							</div>
+						</div>
+
+						<div id="controls" class="col-sm-4">
+							<div id="controls-msg" class="row"></div>
+							<div id="controls-options" class="row">
+							<div id="controls-options-datepicker" class='input-group date' id='datetimepicker'><input type='text' class='form-control' /><span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span></span></div>
+							<div id="controls-options-number"><input id="controls-options-number-input" type='number' name='quantity'></div>
+							<div id="controls-options-string"><input id="controls-options-string-input" type='text' name='quantity'></div>
+							</div>
+							<div id="controls-buttons" class="row">
+								<button class="btn" type="button" id="controls-btn-save">Save</button>
+							</div>
+							<!-- <h2>Control Panel</h2>  -->
+							<!-- <b> Select one of the options below. </b><br>
+							<div id="resourceSelection"></div>
+							<button class="btn btn-default" onclick="saveEntity()">Save
+								selection</button> -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<button id="btn-create-report" class="btn btn-default">Create Report</button>
+						</div>
+					</div>
+				<!-- 	<div class="row">
+						<div class="col-sm-12">
+							<button id="btn-create-prov" class="btn btn-default">Create
+								the Magic</button>
+							;
+						</div>
+					</div>
+				</div>
+				<!-- end #annotate tab-->
+				<div id="link-tab" class="tab-pane fade">
+					<div class="row">
+						<div class="col-sm-12" id="canvas">
+							<h3>Control Panel</h3>
+							<div id="controlsGraph"></div>
+
+							<br> Select a link type below to connect entities in the
+							graph. <br> <br> <br>
+
+
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="parameter used"
+								id="http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#hasParameter">parameter
+								used</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="collected from"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#collectedFrom">#collected
+								from</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="collected using"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#collectedBy">#collected
+								using</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="data collection ended"
+								id="http://www.w3.org/ns/prov#endedAtTime">data
+								collection ended</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="data collection started"
+								id="http://www.w3.org/ns/prov#startedAtTime">data
+								collection started</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="performed by"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#performedBy">performed
+								by</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="extracted from"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#performedBy">extracted
+								from</button>
+
+
+
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="#collectedUsing"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#collectedUsing">#collectedUsing</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="#performedByPerson"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#performedByPerson">#performedByPerson</button>
+							<button type="button" class="btn btn-default linktype"
+								style="margin: 5px" value="#performedByRobot"
+								id="http://www.semanticweb.org/milan/ontologies/2016/4/untitled-ontology-2#performedByRobot">#performedByRobot</button>
+
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12" id="graph"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- /.container -->
+
+    <div id="dialog-summary" class="modal fade"  tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Summary of responses</h4>
+          </div>
+          <div class="modal-body" id="dialog-summary-content">
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+        
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="assets/js/moment.js"></script>
+	<script src="assets/js/bootstrap-datepicker.js"></script>
+
+	<script src="js/template-parser.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="assets/js/pouchdb-6.0.6.min.js"></script>
+	<script src="assets/js/app.js"></script>
+
+</body>
+</html>

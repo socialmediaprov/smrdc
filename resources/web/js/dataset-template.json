@@ -1,0 +1,180 @@
+var template = {
+  "@graph" : [ {
+    "@id" : "_:b0",
+    "@type" : "owl:Restriction",
+    "onDataRange" : "owl:rational",
+    "onProperty" : "http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted",
+    "qualifiedCardinality" : "1"
+  }, {
+    "@id" : "_:b1",
+    "@type" : "owl:Restriction",
+    "allValuesFrom" : "sioc:Site",
+    "onProperty" : "collectedFromService"
+  }, {
+    "@id" : "_:b2",
+    "@type" : "owl:Ontology"
+  }, {
+    "@id" : "_:b3",
+    "@type" : "owl:Restriction",
+    "onDataRange" : "owl:rational",
+    "onProperty" : "http://www.co-ode.org/ontologies/ont.owl#dataCollectionEnded",
+    "qualifiedCardinality" : "1"
+  }, {
+    "@id" : "_:b4",
+    "@type" : "owl:Restriction",
+    "minQualifiedCardinality" : "1",
+    "onClass" : "sioc:Site",
+    "onProperty" : "prism:collectedFromService"
+  }, {
+    "@id" : "dbr:dataset",
+    "@type" : "owl:Class",
+    "subClassOf" : [ "_:b0", "_:b3", "_:b4", "_:b1" ]
+  }, {
+    "@id" : "skos:prefLabel",
+    "@type" : "owl:AnnotationProperty"
+  }, {
+    "@id" : "var:collectedFromService",
+    "@type" : [ "sioc:Site", "owl:NamedIndividual" ]
+  }, {
+    "@id" : "var:dataCollectionEnded",
+    "@type" : [ "xsd:dateTime", "owl:NamedIndividual" ]
+  }, {
+    "@id" : "var:dataCollectionStarted",
+    "@type" : [ "xsd:dateTime", "owl:NamedIndividual" ]
+  }, {
+    "@id" : "var:dataset",
+    "@type" : [ "dbr:dataset", "owl:NamedIndividual" ],
+    "collectedFromService" : "var:collectedFromService",
+    "collectedUsing" : "var:software",
+    "dataCollectionEnded" : "var:dataCollectionEnded",
+    "dataCollectionStarted" : "var:dataCollectionStarted",
+    "parametersUsed" : "var:paramsUsed"
+  }, {
+    "@id" : "var:paramsUsed",
+    "@type" : [ "prism:DataCollectionParameter", "owl:NamedIndividual" ]
+  }, {
+    "@id" : "var:software",
+    "@type" : [ "prism:Software", "owl:NamedIndividual" ]
+  }, {
+    "@id" : "sioc:Site",
+    "@type" : "owl:Class"
+  }, {
+    "@id" : "prism:DataCollectionParameter",
+    "@type" : "owl:Class"
+  }, {
+    "@id" : "prism:Software",
+    "@type" : "owl:Class"
+  }, {
+    "@id" : "prism:collectedFromService",
+    "@type" : "owl:AnnotationProperty",
+    "skos:prefLabel" : "Where was the data obtained from?"
+  }, {
+    "@id" : "prism:collectedUsing",
+    "@type" : "owl:AnnotationProperty",
+    "skos:prefLabel" : "How was this data collected, e.g. a using a tool, API, or manually?"
+  }, {
+    "@id" : "prism:dataCollectionEnded",
+    "@type" : "owl:AnnotationProperty",
+    "range" : "xsd:dateTime",
+    "skos:prefLabel" : "When did collection of this data end?"
+  }, {
+    "@id" : "prism:dataCollectionStarted",
+    "@type" : "owl:AnnotationProperty",
+    "skos:prefLabel" : "When did collection of this data start?"
+  }, {
+    "@id" : "prism:parametersUsed",
+    "@type" : "owl:AnnotationProperty",
+    "skos:prefLabel" : "What parameters were used to restriction data collection?"
+  }, {
+    "@id" : "http://www.co-ode.org/ontologies/ont.owl#collectedFromService",
+    "@type" : "owl:ObjectProperty"
+  }, {
+    "@id" : "http://www.co-ode.org/ontologies/ont.owl#dataCollectionEnded",
+    "@type" : "owl:DatatypeProperty",
+    "range" : "xsd:dateTime",
+    "propertyDisjointWith" : "http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted"
+  }, {
+    "@id" : "http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted",
+    "@type" : "owl:DatatypeProperty",
+    "range" : [ "xsd:integer", "xsd:dateTime" ]
+  }, {
+    "@id" : "xsd:dateTime",
+    "@type" : "owl:Class"
+  } ],
+  "@context" : {
+    "prefLabel" : {
+      "@id" : "http://http://www.w3.org/2004/02/skos/core#prefLabel",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "onDataRange" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onDataRange",
+      "@type" : "@id"
+    },
+    "qualifiedCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#qualifiedCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "onProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onProperty",
+      "@type" : "@id"
+    },
+    "allValuesFrom" : {
+      "@id" : "http://www.w3.org/2002/07/owl#allValuesFrom",
+      "@type" : "@id"
+    },
+    "range" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type" : "@id"
+    },
+    "propertyDisjointWith" : {
+      "@id" : "http://www.w3.org/2002/07/owl#propertyDisjointWith",
+      "@type" : "@id"
+    },
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type" : "@id"
+    },
+    "parametersUsed" : {
+      "@id" : "http://w3id.org/abdn/prism/ontology/parametersUsed",
+      "@type" : "@id"
+    },
+    "dataCollectionStarted" : {
+      "@id" : "http://w3id.org/abdn/prism/ontology/dataCollectionStarted",
+      "@type" : "@id"
+    },
+    "dataCollectionEnded" : {
+      "@id" : "http://w3id.org/abdn/prism/ontology/dataCollectionEnded",
+      "@type" : "@id"
+    },
+    "collectedUsing" : {
+      "@id" : "http://w3id.org/abdn/prism/ontology/collectedUsing",
+      "@type" : "@id"
+    },
+    "collectedFromService" : {
+      "@id" : "http://w3id.org/abdn/prism/ontology/collectedFromService",
+      "@type" : "@id"
+    },
+    "onClass" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onClass",
+      "@type" : "@id"
+    },
+    "minQualifiedCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#minQualifiedCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "vargen" : "http://openprovenance.org/vargen#",
+    "tmpl" : "http://openprovenance.org/tmpl#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "var" : "http://openprovenance.org/var#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "skos" : "http://http://www.w3.org/2004/02/skos/core#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "dbr" : "http://dbpedia.org/resource/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xml" : "http://www.w3.org/XML/1998/namespace",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "prism" : "http://w3id.org/abdn/prism/ontology/",
+    "sioc" : "http://rdfs.org/sioc/ns#"
+  }
+}

@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Logo Nav - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+    <!-- Custom CSS -->
+    <link href="css/logo-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+            </div>
+        
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               
+               <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#annotate" data-toggle="tab">Annotate</a></li>
+        <li><a href="#link" onClick=" displayGraph () " data-toggle="tab">Link</a></li>
+       
+    </ul>
+               
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <div id="my-tab-content" class="tab-content">
+    
+      <div class="tab-pane active" id="annotate">
+    <div class="row"> 
+    <a href="#" onClick="getOntologyQuery ()">QueryOntology</a> 
+    <div id="ontology"> </div>
+</div>
+<div class="row" id="annotate"></div>
+
+      </div>
+    <div class="tab-pane" id="link">
+        <div class="row" id="canvas"> </div>
+    <div class="row" id="graph">
+    </div>
+     </div>
+ 
+    </div>
+    
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/app.js"></script>
+    
+     <script> 
+ if (!window.x) {
+    x = {};
+}
+
+ 
+ function getAnotationConceptsFromOntology (id) { 
+    $('#controls').html('Checking Ontology...');
+  console.log(id);
+  var test = x.Selector.getSelectedText();
+
+  $.ajax({
+    url: "annotationlabels.php?id="+encodeURIComponent(id)
+  }).done(function(data) { // data what is sent back by the php page
+    $('#controls').html(data); // display data
+  });
+
+ }
+
+
+  
+
+
+var entities = [];
+var temp = "hey"; 
+var selectedURI = "notype";
+
+displayAnnotate ();
+
+
+function saveCurrentHighlightedConceptTypeToURIVar(URI) {
+console.log (URI);
+
+selectedURI = URI;
+}
+
+
+function saveEntity () {
+    console.log (temp);
+    var selected = getTextAreaSelection();
+    console.log("selected is ")
+    if (null == selected || "" == selected){
+     alert("Please select some text and try again.")   
+    } else {
+        temp = selected;
+        entities.push('{"label":"'+temp+'", "type":"'+selectedURI+'"}');
+    displayEntities ();
+    getAnotationConceptsFromOntology (0);
+    }
+}
+
+function displayEntities () {
+  
+  $('#entities').html("");
+    
+   for (var i = 0; i < entities.length; i++) {
+    var obj = JSON.parse(entities[i]);
+    $('#entities').append("<li>"+obj.label+"</li>");
+    console.log(obj);
+    //Do something
+}
+   
+
+}
+
+
+function getEntity (id) {
+
+  String (x.Selector.getSelectedText());
+  getAnotationConceptsFromOntology (id) ; 
+} 
+
+function getTextAreaSelection(){
+    var t = "";
+    if (window.getSelection) {
+        t = window.getSelection();
+    } else if (document.getSelection) {
+        t = document.getSelection();
+    } else if (document.selection) {
+        t = document.selection.createRange().text;
+    }
+    
+    t= String (t);
+    return t;
+}
+
+x.Selector = {};
+x.Selector.getSelectedText = function() {
+    var t = getTextAreaSelection();
+   if (t.length!= 0) {
+   
+    highlight(t);
+    return t;
+   }
+    else  {
+    return -1;
+    }
+}
+
+/*
+// Get user selection text on page
+function getSelectedText() {
+     // obtain the object reference for the <textarea>
+    
+    
+    var txtarea = document.getElementById("textArea");
+    // obtain the index of the first selected character
+    
+    if (txtarea) {
+    var start = txtarea.selectionStart;
+    // obtain the index of the last selected character
+    
+    
+    var finish = txtarea.selectionEnd;
+    // obtain the selected text
+    
+    console.log(finish);
+    temp = txtarea.value.substring(start, finish);
+    // do something with the selected content
+    highlight(temp)
+    return temp;
+    }
+    else 
+    
+    return -1;
+    
+}  
+*/
+function highlight(string)
+{
+    console.log("highlighting " + string);
+if(Boolean(string)){ 
+var area = document.getElementById("textArea");
+var str=area.innerHTML; 
+str =  str.replace('<span class="highlight" style="background:yellow">','');
+str = str.replace('</span>','');
+var n=str.replace(string,"<span class='highlight' style='background:yellow'>"+string+"</span>");
+area.innerHTML= n;
+//alert(area.innerHTML);
+}
+temp = string;
+}
+
+
+function displayAnnotate () {
+
+$.ajax({
+  url: "annotate.php?"
+}).done(function(data) { // data what is sent back by the php page
+  $('#annotate').html(data);
+  //create initial controls
+  getAnotationConceptsFromOntology (0); // display data
+});
+
+}
+ 
+ 
+function displayGraph () {
+
+$.ajax({
+  url: "link.php?"
+}).done(function(data) { // data what is sent back by the php page
+  $('#canvas').html(data); // display data
+  
+  $('#graph').html("");
+  
+  setUP();   
+    
+    // app starts here
+svg.on('mousedown', mousedown)
+  .on('mousemove', mousemove)
+  .on('mouseup', mouseup);
+d3.select(window)
+  .on('keydown', keydown)
+  .on('keyup', keyup);
+restart();
+
+console.log("hello");
+});
+ 
+}  
+
+/*function getOntologyQuery () {
+
+$.ajax({
+  url: "http://sj.abdn.ac.uk/Myapp/OntologyQuery?query='SELECT * WHERE {  ?a ?d ?c }'&IRI='http://sj.abdn.ac.uk/SocialProv/ontology/sp.ttl'"
+}).done(function(data) { // data what is sent back by the php page
+  $('#ontology').html(data);
+  //create initial controls
+  getAnotationConceptsFromOntology (0); // display data
+});
+
+}*/
+
+function getOntologyQuery (){
+    $.post("http://sj.abdn.ac.uk/Myapp/OntologyQuery",
+    {
+        query: "SELECT ?a WHERE { Property(?a) }",
+        IRI: "http://sj.abdn.ac.uk/SocialProv/ontology/sp.ttl"
+    },
+    function(data, status){
+    alert (data);
+        $('#ontology').html(data + "\nStatus: " + status);
+    });
+}
+
+  
+  
+  </script>  
+
+</body>
+
+</html>

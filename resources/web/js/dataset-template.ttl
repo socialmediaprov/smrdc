@@ -1,0 +1,180 @@
+@prefix : <http://www.example.org/ns/test#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix var: <http://openprovenance.org/var#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://http://www.w3.org/2004/02/skos/core#> .
+@prefix tmpl: <http://openprovenance.org/tmpl#> .
+@prefix prism: <http://w3id.org/abdn/prism/ontology/> .
+@prefix vargen: <http://openprovenance.org/vargen#> .
+
+_:genid38804607 a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://http://www.w3.org/2004/02/skos/core#prefLabel
+
+skos:prefLabel a owl:AnnotationProperty .
+# 
+# http://w3id.org/abdn/prism/ontology/collectedFromService
+
+prism:collectedFromService a owl:AnnotationProperty ;
+	skos:prefLabel "Where was the data obtained from?" .
+# 
+# http://w3id.org/abdn/prism/ontology/collectedUsing
+
+prism:collectedUsing a owl:AnnotationProperty ;
+	skos:prefLabel "How was this data collected, e.g. a using a tool, API, or manually?" .
+# 
+# http://w3id.org/abdn/prism/ontology/dataCollectionEnded
+
+prism:dataCollectionEnded a owl:AnnotationProperty ;
+	skos:prefLabel "When did collection of this data end?" .
+# 
+# http://w3id.org/abdn/prism/ontology/dataCollectionStarted
+
+prism:dataCollectionStarted a owl:AnnotationProperty ;
+	skos:prefLabel "When did collection of this data start?" .
+# 
+# http://w3id.org/abdn/prism/ontology/parametersUsed
+
+prism:parametersUsed a owl:AnnotationProperty ;
+	skos:prefLabel "What parameters were used to restriction data collection?" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.co-ode.org/ontologies/ont.owl#collectedFromService
+
+<http://www.co-ode.org/ontologies/ont.owl#collectedFromService> a owl:ObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.co-ode.org/ontologies/ont.owl#dataCollectionEnded
+
+<http://www.co-ode.org/ontologies/ont.owl#dataCollectionEnded> a owl:DatatypeProperty ;
+	rdfs:range xsd:dateTime ;
+	owl:propertyDisjointWith <http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted> .
+# 
+# http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted
+
+<http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted> a owl:DatatypeProperty ;
+	rdfs:range xsd:dateTime , xsd:integer .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://dbpedia.org/resource/dataset
+
+dbr:dataset a owl:Class ;
+	rdfs:subClassOf _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#collectedFromService> ;
+	owl:allValuesFrom sioc:Site .
+
+sioc:Site a owl:Class .
+
+dbr:dataset rdfs:subClassOf _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#collectedFromService> ;
+	owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass sioc:Site .
+
+dbr:dataset rdfs:subClassOf _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#dataCollectionEnded> ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange owl:rational .
+
+dbr:dataset rdfs:subClassOf _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#dataCollectionStarted> ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange owl:rational .
+# 
+# http://rdfs.org/sioc/ns#Site
+# 
+# http://w3id.org/abdn/prism/ontology/DataCollectionParameter
+
+prism:DataCollectionParameter a owl:Class .
+# 
+# http://w3id.org/abdn/prism/ontology/Software
+
+prism:Software a owl:Class .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://openprovenance.org/var#collectedFromService
+
+var:collectedFromService a owl:NamedIndividual , sioc:Site .
+# 
+# http://openprovenance.org/var#dataCollectionEnded
+
+var:dataCollectionEnded a owl:NamedIndividual , xsd:dateTime .
+
+xsd:dateTime a owl:Class .
+# 
+# http://openprovenance.org/var#dataCollectionStarted
+
+var:dataCollectionStarted a owl:NamedIndividual , xsd:dateTime .
+# 
+# http://openprovenance.org/var#dataset
+
+var:dataset a owl:NamedIndividual , dbr:dataset ;
+	prism:collectedFromService var:collectedFromService ;
+	prism:collectedUsing var:software ;
+	prism:dataCollectionEnded var:dataCollectionEnded ;
+	prism:dataCollectionStarted var:dataCollectionStarted ;
+	prism:parametersUsed var:paramsUsed .
+# 
+# http://openprovenance.org/var#paramsUsed
+
+var:paramsUsed a owl:NamedIndividual , prism:DataCollectionParameter .
+# 
+# http://openprovenance.org/var#software
+
+var:software a owl:NamedIndividual , prism:Software .
+# 
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi

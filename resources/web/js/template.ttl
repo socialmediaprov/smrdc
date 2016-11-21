@@ -1,0 +1,39 @@
+@prefix :      <http://www.example.org/ns/test#> .
+@prefix vargen: <http://openprovenance.org/vargen#> .
+@prefix tmpl:  <http://openprovenance.org/tmpl#> .
+@prefix var:   <http://openprovenance.org/var#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dbr: <http://dbpedia.org/resource/>
+@prefix prism: <http://w3id.org/abdn/prism/ontology/>
+@prefix skos: <http://http://www.w3.org/2004/02/skos/core#>
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix sioc: <http://rdfs.org/sioc/ns#>
+
+var:dataset  a dbr:dataset;
+   prism:collectedUsing var:software;
+   prism:dataCollectionStarted var:dataCollectionStarted;
+   prism:dataCollectedEnded var:dataCollectionEnded;	
+   prism:collectedFromService var:collectedFromService;
+   prism:parametersUsed var:paramsUsed.
+   
+prism:collectedUsing skos:prefLabel "was collected using the tool(s) or api(s):".
+
+prism:dataCollectionStarted skos:prefLabel "data collected started:"
+
+prism:dataCollectionEnded skos:prefLabel "data collection ended:"
+
+prism:collectedFromService skos:prefLabel "data was collected from social media service"
+
+prism:parametersUsed skos:prefLabel "collection use the following parameters:"
+
+var:software a prism:Software.
+
+var:dataCollectionStarted a xsd:dateTime;
+
+var:dataCollectionEnded a xsd:dateTime;
+
+var:collectedFromService a sioc:Site;
+
+var:paramsUsed a prism:DataCollectionParameter;

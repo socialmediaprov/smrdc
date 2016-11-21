@@ -1,0 +1,5 @@
+resources/*
+!resources/web
+[Bb]in
+[tT]arget
+*.DS_Store

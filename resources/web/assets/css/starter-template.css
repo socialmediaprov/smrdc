@@ -1,0 +1,55 @@
+body {
+	padding-top: 50px;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+#textArea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	width: 90%;
+	height: auto;
+	min-height: 10em;
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.response {
+	font-weight: bold;
+}
+
+.question-highlight {
+	background: rgb(153, 255, 51);
+}
+
+.prompt-query {
+	margin-top: 0.75em;
+}
+
+.prompt-response {
+	padding-left: 2em;
+}
+
+.resource-individual-select-options {
+	height: 160px;
+	padding: 10px;
+	overflow: auto;
+	border: 1px solid rgb(221, 221, 221);
+}
+
+.template-display {
+	border-top: 1px solid rgb(221, 221, 221);
+	margin-top: 1em;
+}
+
+.text-highlight {
+	background-color: rgb(153, 255, 51);
+}
+
+.text-highlight-used {
+	background-color: rgb(179, 255, 230);
+}
